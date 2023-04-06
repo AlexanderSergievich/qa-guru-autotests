@@ -1,5 +1,4 @@
 package guru.qa.homework;
-
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
@@ -38,7 +37,7 @@ public class TestWebForm {
         $(byText("Student Name")).sibling(0).shouldHave(Condition.text("Alexander Sergievich"));
         $(byText("Student Email")).sibling(0).shouldHave(Condition.text("stackinthecorner@gmail.com"));
         $(byText("Gender")).sibling(0).shouldHave(Condition.text("Female"));
-        //здесь и далее по какой-то причине не получается найти элемент byText, почему так? Структура html идентична для всех таблицы.
+        //здесь и далее по какой-то причине не получается найти элемент byText, почему так? Структура html идентична для всей таблицы.
         $(byTagName("tbody")).$$(byTagName("tr")).get(3).shouldHave(Condition.text("8796504478"));
         $(byTagName("tbody")).$$(byTagName("tr")).get(4).shouldHave(Condition.text("11 March,1997"));
         $(byTagName("tbody")).$$(byTagName("tr")).get(5).shouldHave(Condition.text("Physics"));
