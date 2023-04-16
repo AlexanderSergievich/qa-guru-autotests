@@ -1,4 +1,4 @@
-package guru.qa.homework;
+package guru.qa.homework.tests;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selectors.byText;
 
