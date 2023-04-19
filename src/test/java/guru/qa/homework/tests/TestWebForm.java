@@ -14,47 +14,47 @@ public class TestWebForm extends TestBase {
             lastName = data.name().lastName(),
             email = data.internet().emailAddress(),
             gender = RandomUtils.getRandomGender(),
-            PhoneNumber = data.numerify("##########"),
-            BirthDayMonth = RandomUtils.getRandomMonth(),
-            BirthDayYear = Integer.toString(data.number().numberBetween(2000,2022)),
-            BirthDayDate = Integer.toString(data.number().numberBetween(1,28)),
-            Subject = RandomUtils.getRandomSubject(),
-            Hobbies = RandomUtils.getRandomHobbie(),
+            phoneNumber = data.numerify("##########"),
+            birthDayMonth = RandomUtils.getRandomMonth(),
+            birthDayYear = Integer.toString(data.number().numberBetween(2000,2022)),
+            birthDayDate = Integer.toString(data.number().numberBetween(1,28)),
+            subject = RandomUtils.getRandomSubject(),
+            hobbies = RandomUtils.getRandomHobbie(),
             fileName = "download.jpeg",
-            Address = data.address().fullAddress(),
-            State = RandomUtils.getRandomState(),
-            City = RandomUtils.getRandomCity(State);
+            address = data.address().fullAddress(),
+            state = RandomUtils.getRandomState(),
+            city = RandomUtils.getRandomCity(state);
 
     @Test
     public void testWebForm() {
         open();
         registrationPage.openPage()
+                        .closeBanners()
                         .setLastName(lastName)
                         .setFirstName(firstName)
-                        .setEmail(email)
-                        .setGender(gender)
-                        .setPhoneNumber(PhoneNumber);
-        calendar.setCalendarDate(BirthDayDate,BirthDayMonth,BirthDayYear);
-        registrationPage.setSubject(Subject)
-                        .setHobbie(Hobbies)
-                        .setPicture(fileJpeg)
-                        .setAddress(Address)
-                        .setState(State)
-                        .setCity(City)
-                        .setSubmit()
+                        .chooseEmail(email)
+                        .chooseGender(gender)
+                        .setPhoneNumber(phoneNumber);
+        calendar.setCalendarDate(birthDayDate, birthDayMonth, birthDayYear);
+        registrationPage.setSubject(subject)
+                        .chooseHobbie(hobbies)
+                        .uploadPicture(fileJpeg)
+                        .setAddress(address)
+                        .chooseState(state)
+                        .chooseCity(city)
+                        .clickSubmit()
                 //result assert
                         .verifyResult("Student Name", firstName+" "+lastName)
                         .verifyResult("Student Email",email)
                         .verifyResult("Gender",gender)
-                        .verifyResult("Mobile",PhoneNumber)
-                        .verifyResult("Date of Birth",BirthDayDate+" "+BirthDayMonth+","+BirthDayYear)
-                        .verifyResult("Subjects",Subject)
-                        .verifyResult("Hobbies",Hobbies)
+                        .verifyResult("Mobile", phoneNumber)
+                        .verifyResult("Date of Birth", birthDayDate +" "+ birthDayMonth +","+ birthDayYear)
+                        .verifyResult("Subjects", subject)
+                        .verifyResult("Hobbies", hobbies)
                         .verifyResult("Picture",fileName)
-                        .verifyResult("Address",Address)
-                        .verifyResult("State and City", State+" "+City);
-                sleep(5000);
-        registrationPage.setCloseModal();
+                        .verifyResult("Address", address)
+                        .verifyResult("State and City", state +" "+ city);
+        registrationPage.clickCloseModal();
 
 
 

@@ -24,7 +24,7 @@ public class RandomUtils {
     public static void main(String[] args) {
         System.out.println(getRandomItemFromArray(genders));
     }
-    //Случайны элемент массива
+    //Случайный элемент массива
     public static String getRandomItemFromArray(String[] values){
         int index = getRandomInt(0, values.length - 1);
         return values[index];
@@ -51,21 +51,21 @@ public class RandomUtils {
     public static String getRandomState(){return getRandomItemFromArray(states);
     }
     public static String getRandomCity(String state){
-        String City = "";
+        String сity = "";
         switch(state){
             case "NCR":
-                City = getRandomItemFromArray(citiesNCR);
+                сity = getRandomItemFromArray(citiesNCR);
                 break;
             case "Uttar Pradesh":
-                City = getRandomItemFromArray(citiesUttarPradesh);
+                сity = getRandomItemFromArray(citiesUttarPradesh);
                 break;
             case "Haryana":
-                City = getRandomItemFromArray(citiesHaryana);
+                сity = getRandomItemFromArray(citiesHaryana);
                 break;
             case "Rajasthan":
-                City = getRandomItemFromArray(citiesRajasthan);
+                сity = getRandomItemFromArray(citiesRajasthan);
         }
-        return City;
+        return сity;
 
     }
 

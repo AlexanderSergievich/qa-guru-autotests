@@ -8,18 +8,18 @@ import static  com.codeborne.selenide.Selenide.*;
 public class WebFormRegistrationPage {
     //SelenideElements, locators, etc
     SelenideElement
-            firstName = $("#firstName"),
-            lastName = $("#lastName"),
-            email = $("#userEmail"),
-            gender = $("#genterWrapper"),
-            pnoneNumber = $("#userNumber"),
-            subject = $("#subjectsInput"),
-            hobbie = $("#hobbiesWrapper"),
-            picture = $("#uploadPicture"),
-            address = $("#currentAddress"),
-            state = $("#react-select-3-input"),
-            city = $("#react-select-4-input"),
-            submition = $("#submit"),
+            firstNameInput = $("#firstName"),
+            lastNameInput = $("#lastName"),
+            emailInput = $("#userEmail"),
+            genderRadioButton = $("#genterWrapper"),
+            pnoneNumberInput = $("#userNumber"),
+            subjectInput = $("#subjectsInput"),
+            hobbiesRadioButton = $("#hobbiesWrapper"),
+            pictureFileInputButton = $("#uploadPicture"),
+            addressInput = $("#currentAddress"),
+            stateDropDownList = $("#react-select-3-input"),
+            cityDropDownList = $("#react-select-4-input"),
+            submitionButton = $("#submit"),
             closeModalButton = $("#closeLargeModal");
 
 
@@ -30,56 +30,59 @@ public class WebFormRegistrationPage {
     //для Для return this указывается название класа перед именем метода
     public WebFormRegistrationPage openPage(){
         open("/automation-practice-form");
+        return this;
+    }
+    public WebFormRegistrationPage closeBanners(){
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         return this;
     }
     public WebFormRegistrationPage setFirstName(String name){
-        firstName.setValue(name);
+        firstNameInput.setValue(name);
         return this;
     }
     public WebFormRegistrationPage setLastName(String lastname){
-        lastName.setValue(lastname);
+        lastNameInput.setValue(lastname);
         return this;
     }
-    public WebFormRegistrationPage setEmail(String mail){
-        email.setValue(mail);
+    public WebFormRegistrationPage chooseEmail(String mail){
+        emailInput.setValue(mail);
         return this;
     }
-    public WebFormRegistrationPage setGender(String value){
-        gender.$(byText(value)).click();
+    public WebFormRegistrationPage chooseGender(String value){
+        genderRadioButton.$(byText(value)).click();
         return this;
     }
     public WebFormRegistrationPage setPhoneNumber(String number){
-        pnoneNumber.setValue(number);
+        pnoneNumberInput.setValue(number);
         return this;
     }
-    public WebFormRegistrationPage setSubject(String Subject){
-        subject.setValue(Subject).pressEnter();
+    public WebFormRegistrationPage setSubject(String subject){
+        subjectInput.setValue(subject).pressEnter();
         return this;
     }
-    public WebFormRegistrationPage setHobbie(String value){
-        hobbie.$(byText(value)).click();
+    public WebFormRegistrationPage chooseHobbie(String value){
+        hobbiesRadioButton.$(byText(value)).click();
         return this;
     }
-    public WebFormRegistrationPage setPicture(File file){
-        picture.uploadFile(file);
+    public WebFormRegistrationPage uploadPicture(File file){
+        pictureFileInputButton.uploadFile(file);
         return this;
     }
-    public WebFormRegistrationPage setAddress(String Address){
-        address.setValue(Address);
+    public WebFormRegistrationPage setAddress(String address){
+        addressInput.setValue(address);
         return this;
     }
-    public WebFormRegistrationPage setState(String State){
-        state.scrollIntoView(true).setValue(State).pressEnter();
+    public WebFormRegistrationPage chooseState(String state){
+        stateDropDownList.scrollIntoView(true).setValue(state).pressEnter();
         return this;
     }
-    public WebFormRegistrationPage setCity(String City){
-        city.setValue(City).pressEnter();
+    public WebFormRegistrationPage chooseCity(String city){
+        cityDropDownList.setValue(city).pressEnter();
         return this;
     }
-    public WebFormRegistrationPage setSubmit(){
-        submition.click();
+    public WebFormRegistrationPage clickSubmit(){
+        submitionButton.click();
         return this;
     }
     public WebFormRegistrationPage verifyResult(String key, String value){
@@ -88,7 +91,7 @@ public class WebFormRegistrationPage {
 
 
     }
-    public WebFormRegistrationPage setCloseModal(){
+    public WebFormRegistrationPage clickCloseModal(){
         closeModalButton.click();
         return this;
     }
