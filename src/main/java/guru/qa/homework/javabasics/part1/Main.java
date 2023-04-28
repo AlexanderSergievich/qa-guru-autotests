@@ -1,4 +1,4 @@
-package javabasics.part1;
+package guru.qa.homework.javabasics.part1;
 
 public class Main {
         public static void main(String[] args) {
