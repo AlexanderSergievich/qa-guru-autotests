@@ -24,14 +24,19 @@ import static com.codeborne.selenide.Selenide.*;
         everyGlassesButton.click();
         return this;
         }
-    public PyePage chooseGlasses(String model, String color) {
-        $(byText(model)).sibling(0).find(byText(color)).click();
-        return this;
-    }
+//    public PyePage chooseGlasses(String model, String color) {
+//        $(byText(model)).sibling(0).find(byText(color)).click();
+//        return this;
+//    } Моя, неработающай реализация
+public PyePage chooseGlasses(String model, String color) {
+    $$(".common-card-product__info")
+            .filter(Condition.text(model))
+            .find(Condition.text(color))
+            .click();
+    return this;
+}
     public PyePage verifyGlasses(String expectedModel) {
         $(byText(expectedModel)).shouldHave(Condition.text(expectedModel));
         return this;
     }
-
-
-    }
+}
