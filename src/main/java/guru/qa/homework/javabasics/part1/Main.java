@@ -1,5 +1,11 @@
 package guru.qa.homework.javabasics.part1;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
+
 public class Main {
         public static void main(String[] args) {
                 byte byteValue = 126;
