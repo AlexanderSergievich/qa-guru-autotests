@@ -1,20 +1,6 @@
-
 plugins {
     id 'java-library'
-    id "io.qameta.allure" version "2.10.0"
-}
-allure{
-    report {
-        version.set("2.22.0") //версия Allure Report (https://github.com/allure-framework/allure2)
-    }
-    adapter {
-        aspectjWeaver.set(true) // обработка аннотации @Step
-        frameworks {
-            junit5 {
-                adapterVersion.set("2.22.0") //версия Allure JUnit5 (https://github.com/allure-framework/allure-java)
-            }
-        }
-    }
+    id("io.qameta.allure-report") version "2.11.2"
 }
 repositories {
     mavenCentral()
@@ -22,7 +8,6 @@ repositories {
 compileTestJava{
     options.encoding = "UTF-8"
 }
-
 dependencies {
     testImplementation (
             "com.codeborne:selenide:6.12.4",
@@ -37,8 +22,19 @@ dependencies {
             'com.fasterxml.jackson.core:jackson-databind:2.13.1'
     )
 }
-
-
+allure {
+    report {
+        version.set("2.22.0")
+    }
+    adapter { // отвечает за появление build/allure-results
+        aspectjWeaver.set(true) //обработка аннотации @Step
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.22.0") //версия интеграции фреймворка и Allure
+            }
+        }
+    }
+}
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
