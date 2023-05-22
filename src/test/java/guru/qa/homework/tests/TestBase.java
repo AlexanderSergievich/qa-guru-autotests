@@ -13,6 +13,7 @@ public class TestBase {
     LiarsPage liarsPage = new LiarsPage();
     PyePage pyePage = new PyePage();
     Calendar calendar = new Calendar();
+    GitHubPage gitHubSteps = new GitHubPage();
     GitHubPage gitHubPage = new GitHubPage();
 
 
