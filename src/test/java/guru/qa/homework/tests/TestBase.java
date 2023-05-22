@@ -6,6 +6,7 @@ import guru.qa.homework.pages.WebFormRegistrationPage;
 import guru.qa.homework.pages.components.Calendar;
 import guru.qa.homework.pages.components.GitHubPage;
 import guru.qa.homework.pages.components.LiarsPage;
+import guru.qa.homework.steps.GitHubSteps;
 import org.junit.jupiter.api.BeforeAll;
 public class TestBase {
     WebFormRegistrationPage registrationPage = new WebFormRegistrationPage();
@@ -13,9 +14,7 @@ public class TestBase {
     LiarsPage liarsPage = new LiarsPage();
     PyePage pyePage = new PyePage();
     Calendar calendar = new Calendar();
-    GitHubPage gitHubSteps = new GitHubPage();
-    GitHubPage gitHubPage = new GitHubPage();
-
+    GitHubSteps gitHubSteps = new GitHubSteps();
 
     @BeforeAll
     static void setConfiguration(){

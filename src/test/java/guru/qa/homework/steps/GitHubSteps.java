@@ -2,30 +2,31 @@ package guru.qa.homework.steps;
 import guru.qa.homework.pages.components.GitHubPage;
 
 
-public class GitHubSteps extends GitHubPage {
+public class GitHubSteps {
+    GitHubPage gitHubPage = new GitHubPage();
     @Step("Open github page")
-    public GitHubSteps openGitHubPage(){
-        GitHubPage.openPage();
+    public GitHubSteps openGitHubPageStep(){
+        gitHubPage.openPage();
         return this;
     }
     @Step("Search for repository")
-    public GitHubSteps searchForRepository(String repo){
-        GitHubPage.searchForRepository(repo);
+    public GitHubSteps searchForRepositoryStep(String repo){
+        gitHubPage.searchForRepository(repo);
         return this;
     }
     @Step("click on repository link")
-    public GitHubSteps clickOnRepositoryLink(String repo){
-        GitHubPage.clickOnRepositoryLink(repo);
+    public GitHubSteps clickOnRepositoryLinkStep(String repo){
+        gitHubPage.clickOnRepositoryLink(repo);
         return this;
     }
     @Step("Click on issues tab")
-    public GitHubSteps clickOnIssuesTab(){
-        GitHubPage.openIssuesTab();
+    public GitHubSteps clickOnIssuesTabStep(){
+        gitHubPage.openIssuesTab();
         return this;
     }
     @Step("Verify there is an issue with number")
-    public GitHubSteps verifyTHereIsIssueWithNumber(int issue){
-        GitHubPage.shouldSeeIssueWithNumber(issue);
+    public GitHubSteps verifyTHereIsIssueWithNumberStep(int issue){
+        gitHubPage.shouldSeeIssueWithNumber(issue);
         return this;
     }
 

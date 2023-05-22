@@ -15,7 +15,7 @@ public class GitHubPage {
     public static void openPage(){
         open("https://github.com");
     }
-    public static void searchForRepository(String repo){
+    public void searchForRepository(String repo){
         searchInputElement.click();
         searchInputElement.sendKeys(repo);
         searchInputElement.submit();
