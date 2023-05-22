@@ -1,0 +1,90 @@
+{
+  "name": "Loft Music",
+  "address": "Koshevenaya 30",
+  "owner": "Mikhail Smirnov",
+  "equipment": [
+    {
+      "guitars": [
+        {
+        "type": "bass",
+        "manufacturer": "Yamaha",
+        "amountOfStrings": 4
+        },
+        {
+          "type": "guitar",
+          "manufacturer": "Paul Reed Smith",
+          "amountOfStrings": 6
+        }
+      ]
+    },
+    {
+      "pedals": [
+        {
+          "type": "delay"
+        },
+        {
+          "type": "reverb"
+        },
+        {
+          "type": "looper"
+        }
+      ]
+    },
+    {
+      "drums": {
+      "manufacturer": "Sonor",
+      "contents": {
+        "snare": 1,
+        "bass": 1,
+        "toms": 2,
+        "cymbals": 4,
+        "percussion": 4
+      }
+    }
+    },
+    {
+      "microphones": {
+        "contents": {
+          "vocal": 4,
+          "instrumental": 3,
+          "overhead": 3,
+          "bass": 1
+        }
+      }
+    },
+    {
+      "keys": [
+        {
+          "synths": [
+            {
+              "manufacturer": "Nord",
+              "model": "NordKeys",
+              "keys": 88,
+              "poliphony": 256
+            },
+            {
+              "manufacturer": "Sequential",
+              "model": "ProphetV",
+              "keys": 88,
+              "poliphony": 256
+            },
+            {
+              "manufacturer": "DaveSmithInstruments",
+              "model": "Mopho",
+              "keys": 25,
+              "poliphony": 1
+            }
+          ],
+          "piano": [
+            {
+              "manufacturer": "Korg",
+              "model": "SV-173",
+              "keys": 88,
+              "poliphony": 256
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
