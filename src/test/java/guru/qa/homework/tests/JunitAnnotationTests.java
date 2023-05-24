@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.List;
+
 import java.util.stream.Stream;
 
 public class JunitAnnotationTests extends TestBase {
@@ -32,17 +32,14 @@ public class JunitAnnotationTests extends TestBase {
     static Stream<Arguments> pyeSiteTest(){
         return Stream.of(
                 Arguments.of("Dita 2.0", "Milky Nude"), //ищет
-                //Arguments.of("Mason", "Salted caramel") //ищет
-                //Arguments.of("Pye x Avgvst Orbital", "Wine"), //не ищет
-                //Arguments.of("Pye x Avgvst Orbital", "State"), //не ищет
+                Arguments.of("Mason", "Salted caramel"), //ищет
+                Arguments.of("Pye x Avgvst Orbital", "Wine"), //не ищет
+                Arguments.of("Pye x Avgvst Orbital", "State"), //не ищет
                 Arguments.of("Dita 2.0", "Milky Green"), // не ищет
                 Arguments.of("Ethel", "Chillaxin"), //ищет
                 Arguments.of("Ethel", "Wine"), //не ищет
                 Arguments.of("Naiton", "WG"), //ищет
-                Arguments.of("Naiton", "GM") //не ищет
-                //Не понимаю, почему какие-то из этих моделей получается найти по цвету, другие не получается
-                //Помагите разобраться! Пожалуйста!
-
+                Arguments.of("Naiton", "GM")//не ищет
         );
     }
     @MethodSource
