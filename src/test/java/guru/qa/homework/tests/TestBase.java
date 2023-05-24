@@ -15,6 +15,7 @@ public class TestBase {
     PyePage pyePage = new PyePage();
     Calendar calendar = new Calendar();
     GitHubSteps gitHubSteps = new GitHubSteps();
+    GitHubPage gitHubPage = new GitHubPage();
 
     @BeforeAll
     static void setConfiguration(){

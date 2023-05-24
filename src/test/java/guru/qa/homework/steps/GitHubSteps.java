@@ -1,5 +1,6 @@
 package guru.qa.homework.steps;
 import guru.qa.homework.pages.components.GitHubPage;
+import io.qameta.allure.Step;
 
 
 public class GitHubSteps {
@@ -29,6 +30,4 @@ public class GitHubSteps {
         gitHubPage.shouldSeeIssueWithNumber(issue);
         return this;
     }
-
-
 }

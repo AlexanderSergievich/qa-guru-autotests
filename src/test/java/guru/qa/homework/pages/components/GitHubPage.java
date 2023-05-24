@@ -9,25 +9,30 @@ import static com.codeborne.selenide.Selenide.open;
 import static org.openqa.selenium.By.linkText;
 
 public class GitHubPage {
-    public static SelenideElement issuesTab = $("#issues-tab");
-    public static SelenideElement searchInputElement = $(".header-search-input");
+    public SelenideElement issuesTab = $("#issues-tab");
+    public SelenideElement searchInputElement = $(".header-search-input");
 
-    public static void openPage(){
+    public GitHubPage openPage(){
         open("https://github.com");
+        return this;
     }
-    public void searchForRepository(String repo){
+    public GitHubPage searchForRepository(String repo){
         searchInputElement.click();
         searchInputElement.sendKeys(repo);
         searchInputElement.submit();
+        return this;
     }
-    public static void clickOnRepositoryLink(String repo){
+    public GitHubPage clickOnRepositoryLink(String repo){
         $(linkText(repo)).click();
+        return this;
     }
-    public static void openIssuesTab() {
+    public GitHubPage openIssuesTab() {
         issuesTab.click();
+        return this;
     }
-    public static void shouldSeeIssueWithNumber(int issue) {
+    public GitHubPage shouldSeeIssueWithNumber(int issue) {
         $(withText("#" + issue)).should(Condition.exist);
+        return this;
     }
 
 }
