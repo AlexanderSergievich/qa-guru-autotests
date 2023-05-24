@@ -6,7 +6,7 @@ import guru.qa.homework.pages.VicePage;
 import guru.qa.homework.pages.WebFormRegistrationPage;
 import guru.qa.homework.pages.components.Calendar;
 import guru.qa.homework.pages.LiarsPage;
-import guru.qa.homework.pages.components.GitHubPage;
+import guru.qa.homework.pages.GitHubPage;
 import guru.qa.homework.steps.GitHubSteps;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;

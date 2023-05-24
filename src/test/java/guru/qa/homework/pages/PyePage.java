@@ -10,8 +10,6 @@ import static com.codeborne.selenide.Selenide.*;
         SelenideElement opticButton = $(byText("Оптика")),
                         everyGlassesButton = $("[href='https://pyeoptics.com/opravy-ochki-dlya-zreniya/vse-ochki-opravy']");
 
-
-
     public PyePage openSite(){
         open("https://pyeoptics.com/");
         return this;

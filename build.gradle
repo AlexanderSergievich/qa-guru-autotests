@@ -42,3 +42,10 @@ tasks.withType(JavaCompile) {
 test {
     useJUnitPlatform()
 }
+
+task WebFormTest(type: Test){
+    useJUnitPlatform{
+        includeTags("WebForm")
+        //excludeTags("")
+    }
+}

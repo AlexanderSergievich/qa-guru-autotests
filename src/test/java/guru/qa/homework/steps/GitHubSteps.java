@@ -1,5 +1,5 @@
 package guru.qa.homework.steps;
-import guru.qa.homework.pages.components.GitHubPage;
+import guru.qa.homework.pages.GitHubPage;
 import io.qameta.allure.Step;
 
 

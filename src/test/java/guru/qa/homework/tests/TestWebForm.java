@@ -1,4 +1,5 @@
 package guru.qa.homework.tests;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import java.io.File;
 import static com.codeborne.selenide.Selenide.*;
@@ -25,6 +26,7 @@ public class TestWebForm extends TestBase {
             state = RandomUtils.getRandomState(),
             city = RandomUtils.getRandomCity(state);
 
+    @Tag("WebForm")
     @Test
     public void testWebForm() {
         open();
