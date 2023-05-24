@@ -28,7 +28,6 @@ public class AllurePracticeTest extends TestBase {
                     .clickOnRepositoryLinkStep(repo)
                     .clickOnIssuesTabStep()
                     .verifyTHereIsIssueWithNumberStep(issueNumber);
-
     }
     @Test
     public void GitHubLambdaPageTest(){
