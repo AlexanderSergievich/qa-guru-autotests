@@ -22,6 +22,11 @@ dependencies {
             'com.fasterxml.jackson.core:jackson-databind:2.13.1'
     )
 }
+
+def selenideVersion = "6.13.0",
+        allureVersion = "2.22.0",
+        jUnitVersion = "5.8.2"
+
 allure {
     report {
         version.set("2.22.0")
