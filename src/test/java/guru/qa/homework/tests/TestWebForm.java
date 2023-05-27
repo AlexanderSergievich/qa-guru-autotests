@@ -65,13 +65,6 @@ public class TestWebForm extends TestBase {
                     .clickCloseModal();
         });
     }
-    @AfterEach
-    void addAttachments() {
-        Attach.screenshotAs("Last screenshot");
-        Attach.pageSource();
-        Attach.browserConsoleLogs();
-        Attach.addVideo();
-    }
 }
 
 

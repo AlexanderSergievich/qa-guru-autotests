@@ -1,6 +1,8 @@
 package guru.qa.homework.tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import guru.qa.homework.helpers.Attach;
 import guru.qa.homework.pages.PyePage;
 import guru.qa.homework.pages.VicePage;
 import guru.qa.homework.pages.WebFormRegistrationPage;
@@ -8,6 +10,7 @@ import guru.qa.homework.pages.components.Calendar;
 import guru.qa.homework.pages.LiarsPage;
 import guru.qa.homework.pages.GitHubPage;
 import guru.qa.homework.steps.GitHubSteps;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -35,10 +38,17 @@ public class TestBase {
                 "enableVNC", true,
                 "enableVideo", true
         ));
-
         Configuration.browserCapabilities = capabilities;
+        SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
+    @AfterEach
+    void addAttachments() {
+        Attach.screenshotAs("Last screenshot");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+        Attach.addVideo();
+    }
 
     @AfterEach
     public void closeBrowserAfterEachTest(){
