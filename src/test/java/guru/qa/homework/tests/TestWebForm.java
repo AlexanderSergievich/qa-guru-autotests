@@ -1,6 +1,4 @@
 package guru.qa.homework.tests;
-import guru.qa.homework.helpers.Attach;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import java.io.File;

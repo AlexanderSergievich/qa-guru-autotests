@@ -14,7 +14,6 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
 import java.util.Map;
 
 public class TestBase {
@@ -41,7 +40,6 @@ public class TestBase {
         Configuration.browserCapabilities = capabilities;
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
-
     @AfterEach
     void addAttachments() {
         Attach.screenshotAs("Last screenshot");
@@ -49,9 +47,8 @@ public class TestBase {
         Attach.browserConsoleLogs();
         Attach.addVideo();
     }
-
-    @AfterEach
-    public void closeBrowserAfterEachTest(){
-        Selenide.closeWebDriver();
-    }
+//    @AfterEach
+//    public void closeBrowserAfterEachTest(){
+//        Selenide.closeWebDriver();
+//    }
 }
