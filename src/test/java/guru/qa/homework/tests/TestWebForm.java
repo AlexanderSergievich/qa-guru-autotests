@@ -1,8 +1,11 @@
 package guru.qa.homework.tests;
+import guru.qa.homework.helpers.Attach;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import java.io.File;
-import static com.codeborne.selenide.Selenide.*;
+import static io.qameta.allure.Allure.step;
+
 import com.github.javafaker.*;
 import guru.qa.homework.utils.RandomUtils;
 
@@ -29,34 +32,46 @@ public class TestWebForm extends TestBase {
     @Tag("WebForm")
     @Test
     public void testWebForm() {
-        open();
-        registrationPage.openPage()
-                        .closeBanners()
-                        .setLastName(lastName)
-                        .setFirstName(firstName)
-                        .chooseEmail(email)
-                        .chooseGender(gender)
-                        .setPhoneNumber(phoneNumber);
-        calendar.setCalendarDate(birthDayDate, birthDayMonth, birthDayYear);
-        registrationPage.setSubject(subject)
-                        .chooseHobbie(hobbies)
-                        .uploadPicture(fileJpeg)
-                        .setAddress(address)
-                        .chooseState(state)
-                        .chooseCity(city)
-                        .clickSubmit()
-                //result assert
-                        .verifyResult("Student Name", firstName+" "+lastName)
-                        .verifyResult("Student Email",email)
-                        .verifyResult("Gender",gender)
-                        .verifyResult("Mobile", phoneNumber)
-                        .verifyResult("Date of Birth", birthDayDate +" "+ birthDayMonth +","+ birthDayYear)
-                        .verifyResult("Subjects", subject)
-                        .verifyResult("Hobbies", hobbies)
-                        .verifyResult("Picture",fileName)
-                        .verifyResult("Address", address)
-                        .verifyResult("State and City", state +" "+ city);
-        registrationPage.clickCloseModal();
+        step("Открыть страницу", () -> {
+            registrationPage.openPage();
+        });
+        step("Заполнить форму и отправить на сервер", () -> {
+            registrationPage.closeBanners()
+                    .setLastName(lastName)
+                    .setFirstName(firstName)
+                    .chooseEmail(email)
+                    .chooseGender(gender)
+                    .setPhoneNumber(phoneNumber);
+            calendar.setCalendarDate(birthDayDate, birthDayMonth, birthDayYear);
+            registrationPage.setSubject(subject)
+                    .chooseHobbie(hobbies)
+                    .uploadPicture(fileJpeg)
+                    .setAddress(address)
+                    .chooseState(state)
+                    .chooseCity(city)
+                    .clickSubmit();
+        });
+        step("Провалидировать результаты", () ->{
+            registrationPage.verifyResult("Student Name", firstName+" "+lastName)
+                    .verifyResult("Student Email",email)
+                    .verifyResult("Gender",gender)
+                    .verifyResult("Mobile", phoneNumber)
+                    .verifyResult("Date of Birth", birthDayDate +" "+ birthDayMonth +","+ birthDayYear)
+                    .verifyResult("Subjects", subject)
+                    .verifyResult("Hobbies", hobbies)
+                    .verifyResult("Picture",fileName)
+                    .verifyResult("Address", address)
+                    .verifyResult("State and City", state +" "+ city)
+                    .clickCloseModal();
+        });
+    }
+    @AfterEach
+    void addAttachments() {
+        Attach.screenshotAs("Last screenshot");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+        Attach.addVideo();
     }
 }
+
 
