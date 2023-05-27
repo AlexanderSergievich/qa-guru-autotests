@@ -10,6 +10,10 @@ import guru.qa.homework.pages.GitHubPage;
 import guru.qa.homework.steps.GitHubSteps;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+import java.util.Map;
+
 public class TestBase {
     WebFormRegistrationPage registrationPage = new WebFormRegistrationPage();
     VicePage vicePage = new VicePage();
@@ -19,11 +23,23 @@ public class TestBase {
     GitHubSteps gitHubSteps = new GitHubSteps();
     GitHubPage gitHubPage = new GitHubPage();
 
+
     @BeforeAll
     static void setConfiguration(){
         Configuration.baseUrl = "https://demoqa.com";
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         //Configuration.holdBrowserOpen = true;
+
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                "enableVNC", true,
+                "enableVideo", true
+        ));
+
+        Configuration.browserCapabilities = capabilities;
     }
+
+
     @AfterEach
     public void closeBrowserAfterEachTest(){
         Selenide.closeWebDriver();
