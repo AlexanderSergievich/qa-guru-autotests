@@ -28,11 +28,11 @@ public class TestBase {
 
     @BeforeAll
     static void setConfiguration(){
-        Configuration.baseUrl = System.getProperty("BROWSER_SIZE");
-        Configuration.remote = System.getProperty("REMOTE");
-        Configuration.browserSize = System.getProperty("BROWSER_SIZE");
-        Configuration.browserVersion = System.getProperty("BROWSER_VERSION");
-        Configuration.browser = System.getProperty("BROWSER");
+        Configuration.baseUrl = System.getProperty("browser_size");
+        Configuration.remote = System.getProperty("remote");
+        Configuration.browserSize = System.getProperty("browser_size");
+        Configuration.browserVersion = System.getProperty("browser_version");
+        Configuration.browser = System.getProperty("browser");
 
         //Configuration.holdBrowserOpen = true;
 
