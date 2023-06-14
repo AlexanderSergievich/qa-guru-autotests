@@ -28,12 +28,12 @@ public class TestBase {
 
     @BeforeAll
     static void setConfiguration(){
+        Configuration.browser = System.getProperty("browser");
+        Configuration.browserVersion = System.getProperty("browser_version");
         Configuration.pageLoadStrategy = "eager";
         Configuration.remote = System.getProperty("remote");
-        Configuration.browser = System.getProperty("browser");
         Configuration.baseUrl = System.getProperty("base_url");
         Configuration.browserSize = System.getProperty("browser_size");
-        Configuration.browserVersion = System.getProperty("browser_version");
         //Configuration.baseUrl = "https://demoqa.com";
 
         //Configuration.holdBrowserOpen = true;
