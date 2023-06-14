@@ -28,8 +28,12 @@ public class TestBase {
 
     @BeforeAll
     static void setConfiguration(){
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        Configuration.baseUrl = System.getProperty("baseUrl");
+        Configuration.remote = System.getProperty("remote");
+        Configuration.browserSize = System.getProperty("browserSize");
+        Configuration.browserVersion = System.getProperty("version");
+        Configuration.browser = System.getProperty("safari");
+
         //Configuration.holdBrowserOpen = true;
 
         DesiredCapabilities capabilities = new DesiredCapabilities();

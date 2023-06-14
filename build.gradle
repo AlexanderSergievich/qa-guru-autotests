@@ -42,6 +42,11 @@ allure {
 }
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
+
+}
+tasks.withType(Test) {
+    //options.encoding = 'UTF-8'
+    systemProperties(System.getProperties())
 }
 
 test {
