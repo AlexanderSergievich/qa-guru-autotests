@@ -31,10 +31,11 @@ public class TestBase {
         Configuration.pageLoadStrategy = "eager";
         Configuration.remote = System.getProperty("remote");
         Configuration.browser = System.getProperty("browser");
-        Configuration.baseUrl = System.getProperty("browser_size");
+        Configuration.baseUrl = System.getProperty("base_url");
         Configuration.browserSize = System.getProperty("browser_size");
         Configuration.browserVersion = System.getProperty("browser_version");
         Configuration.browser = System.getProperty("browser");
+        //Configuration.baseUrl = "https://demoqa.com";
 
         //Configuration.holdBrowserOpen = true;
 
