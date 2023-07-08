@@ -7,7 +7,6 @@ import static io.qameta.allure.Allure.step;
 import com.github.javafaker.*;
 import guru.qa.homework.utils.RandomUtils;
 
-
 public class TestWebForm extends TestBase {
     Faker data = new Faker();
     File fileJpeg = new File("src/test/resources/download.jpeg");

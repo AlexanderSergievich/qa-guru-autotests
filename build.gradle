@@ -15,7 +15,9 @@ dependencies {
             "com.github.javafaker:javafaker:1.0.2",
             "com.fasterxml.jackson.core:jackson-core:2.13.1",
             "com.codeborne:pdf-test:1.8.1",
-            'io.qameta.allure:allure-selenide:2.22.0'
+            'io.qameta.allure:allure-selenide:2.22.0',
+            "org.aeonbits.owner:owner:1.0.12",
+            "org.assertj:assertj-core:3.24.2"
     )
     implementation(
             "com.fasterxml.jackson.core:jackson-core:2.13.1",
@@ -51,8 +53,7 @@ tasks.withType(Test) {
 
 test {
     useJUnitPlatform()
-}
-
+    }
 task WebFormTest(type: Test){
     useJUnitPlatform{
         includeTags("WebForm")
