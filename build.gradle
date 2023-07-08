@@ -1,6 +1,7 @@
 plugins {
     id 'java-library'
     id 'io.qameta.allure' version '2.11.2'
+    id "io.freefair.lombok" version "6.0.0-m2"
 }
 repositories {
     mavenCentral()
@@ -48,9 +49,15 @@ test {
     useJUnitPlatform()
 }
 
-task WebFormTest(type: Test){
-    useJUnitPlatform{
+task WebFormTest(type: Test) {
+    useJUnitPlatform {
         includeTags("WebForm")
         //excludeTags("")
+    }
+task FilesTest(type: Test) {
+        useJUnitPlatform {
+            includeTags("Files")
+            //excludeTags("")
+        }
     }
 }

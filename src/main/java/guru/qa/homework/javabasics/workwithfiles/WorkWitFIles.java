@@ -66,8 +66,6 @@ public class WorkWitFIles {
         zipOut.close();
         fos.close();
     }
-
-
     //парсит значения json по ключуб но не глубоко
     public String parseJson(String fileName) throws Exception {
         File jsonFile = new File(getClass().getResource("/" + fileName).getFile());
@@ -75,36 +73,5 @@ public class WorkWitFIles {
         JsonNode jsonNode = objectMapper.readTree(jsonFile);
         String content = jsonNode.get("name").asText();
         return content;
-    }
-
-    //Позаимствованный в chatGPT алгоритм для парсинга массива (который не работает)
-    public void parseJsonArray(String fileName) {
-        File jsonFile = new File(getClass().getResource("/" + fileName).getFile());
-        try {
-            // create an instance of the ObjectMapper class
-            ObjectMapper objectMapper = new ObjectMapper();
-
-            // read the JSON file and create a JsonNode object
-            JsonNode jsonNode = objectMapper.readTree(jsonFile);
-
-            // get the array as a JsonNode object
-            JsonNode arrayNode = jsonNode.get("equipment").get(0).get("guitars");
-            // iterate through the array and process each element
-            Iterator<JsonNode> elements = arrayNode.elements();
-            while (elements.hasNext()) {
-                JsonNode element = elements.next();
-                // process the element as needed
-                System.out.println(element.asText());
-            }
-
-        } catch (JsonParseException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    
-    public void TestMethod() {
-        System.out.println("why?");
     }
 }
