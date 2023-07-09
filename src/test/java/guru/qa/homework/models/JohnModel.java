@@ -1,15 +1,14 @@
 package guru.qa.homework.models;
 
-import com.github.javafaker.Address;
-
 import java.util.List;
 
 public class JohnModel {
-    private String  name;
+    private String name;
     private String email;
     private int age;
     private List<String> hobbies;
     private Address address;
+
     public String getName() {
         return name;
     }
@@ -35,6 +34,7 @@ public class JohnModel {
                 city,
                 state,
                 country;
+
         public String getStreet() {
             return street;
         }

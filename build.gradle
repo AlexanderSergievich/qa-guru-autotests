@@ -6,17 +6,20 @@ plugins {
 repositories {
     mavenCentral()
 }
-compileTestJava{
+compileTestJava {
     options.encoding = "UTF-8"
 }
 dependencies {
-    testImplementation (
+    testImplementation(
             "com.codeborne:selenide:6.12.4",
             "org.junit.jupiter:junit-jupiter:5.8.2",
             "com.github.javafaker:javafaker:1.0.2",
             "com.fasterxml.jackson.core:jackson-core:2.13.1",
             "com.codeborne:pdf-test:1.8.1",
-            'io.qameta.allure:allure-selenide:2.22.0'
+            'com.codeborne:xls-test:1.4.3',
+            'io.qameta.allure:allure-selenide:2.22.0',
+            'com.opencsv:opencsv:5.7.1'
+
     )
     implementation(
             "com.fasterxml.jackson.core:jackson-core:2.13.1",
@@ -25,8 +28,8 @@ dependencies {
 }
 
 def selenideVersion = "6.13.0",
-        allureVersion = "2.22.0",
-        jUnitVersion = "5.8.2"
+    allureVersion = "2.22.0",
+    jUnitVersion = "5.8.2"
 
 allure {
     report {
@@ -54,7 +57,7 @@ task WebFormTest(type: Test) {
         includeTags("WebForm")
         //excludeTags("")
     }
-task FilesTest(type: Test) {
+    task FilesTest(type: Test) {
         useJUnitPlatform {
             includeTags("Files")
             //excludeTags("")

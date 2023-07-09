@@ -1,15 +1,13 @@
 package guru.qa.homework.javabasics.workwithfiles;
 
 import java.io.*;
-import java.nio.file.Paths;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 import java.util.zip.*;
 
-import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class WorkWitFIles {
 
     public String pdf = new String("policy_P2301001392.pdf");
@@ -39,6 +37,7 @@ public class WorkWitFIles {
         zip.close();
         fos.close();
     }
+
     //для архивации нескольких файлов:
     public void createZipArchiveMultipleFiles(String fileName, String fileName2, String fileName3) throws Exception {
         String file = fileName;
@@ -57,7 +56,7 @@ public class WorkWitFIles {
 
             byte[] bytes = new byte[1024];
             int length;
-            while((length = is.read(bytes)) >= 0) {
+            while ((length = is.read(bytes)) >= 0) {
                 zipOut.write(bytes, 0, length);
             }
             is.close();
@@ -66,6 +65,7 @@ public class WorkWitFIles {
         zipOut.close();
         fos.close();
     }
+
     //парсит значения json по ключуб но не глубоко
     public String parseJson(String fileName) throws Exception {
         File jsonFile = new File(getClass().getResource("/" + fileName).getFile());
