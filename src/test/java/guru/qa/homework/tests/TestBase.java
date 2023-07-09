@@ -35,17 +35,16 @@ public class TestBase {
             Configuration.browserVersion = config.getBrowserVersion();
             if (config.isRemoteWebDriver()) {
                 Configuration.remote = config.getRemoteURL();
+                DesiredCapabilities capabilities = new DesiredCapabilities();
+                capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                        "enableVNC", true,
+                        "enableVideo", true
+                ));
+                Configuration.browserCapabilities = capabilities;
+                SelenideLogger.addListener("allure", new AllureSelenide());
             }
         //Configuration.baseUrl = "https://demoqa.com";
         //Configuration.holdBrowserOpen = true;
-
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                "enableVNC", true,
-                "enableVideo", true
-        ));
-        Configuration.browserCapabilities = capabilities;
-        SelenideLogger.addListener("allure", new AllureSelenide());
     }
     @AfterEach
     void addAttachments() {
