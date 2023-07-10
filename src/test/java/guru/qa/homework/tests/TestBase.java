@@ -48,10 +48,13 @@ public class TestBase {
     }
     @AfterEach
     void addAttachments() {
-        Attach.screenshotAs("Last screenshot");
-        Attach.pageSource();
-        Attach.browserConsoleLogs();
-        Attach.addVideo();
+        WebDriverConfig config = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
+        if (config.isRemoteWebDriver()) {
+            Attach.screenshotAs("Last screenshot");
+            Attach.pageSource();
+            Attach.browserConsoleLogs();
+            Attach.addVideo();
+        }
     }
 //    @AfterEach
 //    public void closeBrowserAfterEachTest(){
