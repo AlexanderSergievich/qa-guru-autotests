@@ -50,11 +50,11 @@ public class TestBase {
     void addAttachments() {
         WebDriverConfig config = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
         if (config.isRemoteWebDriver()) {
-            Attach.screenshotAs("Last screenshot");
-            Attach.pageSource();
-            Attach.browserConsoleLogs();
             Attach.addVideo();
         }
+        Attach.screenshotAs("Last screenshot");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
     }
 //    @AfterEach
 //    public void closeBrowserAfterEachTest(){
